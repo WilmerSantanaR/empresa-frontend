@@ -71,6 +71,7 @@ const Register = () => {
   };
 
   return (
+    <div className="min-h-screen flex items-center justify-center p-4">
     <div className="bg-gray-800 p-8 rounded-xl shadow-xl w-auto lg:w-[450px]">
       <h1 className="text-3xl text-center uppercase font-bold tracking-[5px] text-white mb-8">
         Crear <span className="text-primary">Cuenta</span>
@@ -155,11 +156,13 @@ const Register = () => {
         </div>
         <div className="mt-12 text-center"> {/* Ajuste para centrar el texto */}
           <span className='flex items-center justify-center gap-2'>
-            Ya tienes cuenta <Link to="/auth/" className="text-primary hover:text-gray-100 transition-colors">Inicia Sesión</Link>
+            Ya tienes cuenta <Link to="/login" className="text-primary hover:text-gray-100 transition-colors">Inicia Sesión</Link>
           </span>
         </div>
       </form>
     </div>
+    </div>
+    
   );
 };
 

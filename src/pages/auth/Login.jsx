@@ -10,7 +10,9 @@ const Login = () => {
     setShowPassword(!showPassword);
   };
 
-  return (
+  return ( 
+    <div className="min-h-screen flex items-center justify-center p-4">
+
     <div className="bg-gray-800 p-8 rounded-xl shadow-xl w-auto lg:[450px]">
       <h1 className="text-3xl text-center uppercase font-bold tracking-[5px] text-white mb-8">Iniciar 
         <span className="text-primary">Sesión</span> </h1>
@@ -52,13 +54,15 @@ const Login = () => {
       </form>
       <div className="mt-4 text-white text-center">
         <span style={{ marginRight: '10px' }}>
-          <Link to="/auth/olvide-password" className="hover:text-primary transition-colors">¿Olvidaste tu contraseña?</Link>
+          <Link to="/olvide-password" className="hover:text-primary transition-colors">¿Olvidaste tu contraseña?</Link>
         </span>
         <span>
-          <Link to="/auth/registro" className="text-primary hover:text-gray-100 transition-colors">Regístrate aquí</Link>
+          <Link to="/registro" className="text-primary hover:text-gray-100 transition-colors">Regístrate aquí</Link>
         </span>
       </div>
     </div>
+    </div>
+    
   );
 }
 
