@@ -2,7 +2,7 @@ import React from 'react'
 
 const Inventary = () => {
   return (
-    <div>Inventary</div>
+    <div>Inventario</div>
   )
 }
 

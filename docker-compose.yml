@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      NODE_ENV: 'development'
+    ports:
+      - "8080:3000"
+    depends_on:
+      - bd
+    volumes:
+      - ".:/app"
+    networks:
+      - backend
+
+  bd:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: empresa
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 0000
+    ports:
+      - "5433:5432"
+    volumes:
+      - bd_empresa:/var/lib/postgresql/data
+    networks:
+      - backend
+
+volumes:
+  bd_empresa:
+
+networks:
+  backend:
+    driver: bridge
