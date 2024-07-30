@@ -1,37 +1,22 @@
-version: '3.8'
+version: '3.9'
 
 services:
   api:
     build:
-      context: .
+      context: .  # Ruta al Dockerfile del frontend
       dockerfile: Dockerfile
     environment:
       NODE_ENV: 'development'
     ports:
-      - "8080:3000"
-    depends_on:
-      - bd
+      - "8081:3000"
     volumes:
-      - ".:/app"
+      - "./:/app"
     networks:
-      - backend
-
-  bd:
-    image: postgres:16
-    environment:
-      POSTGRES_DB: empresa
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 0000
-    ports:
-      - "5433:5432"
-    volumes:
-      - bd_empresa:/var/lib/postgresql/data
-    networks:
-      - backend
+      - empresa-frontend_backend
 
 volumes:
   bd_empresa:
 
 networks:
-  backend:
-    driver: bridge
+  empresa-frontend_backend:
+    external: true

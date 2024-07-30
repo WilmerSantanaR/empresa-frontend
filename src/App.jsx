@@ -1,8 +1,11 @@
 // src/App.js
 
-import React, { useState } from 'react'; // Asegúrate de importar useState aquí
+import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LayoutAdmin from './layouts/LayoutAdmin';
+import MyChart from './components/MyChart';
+import TopProductsPage from "./pages/TopProductsPage"; // Asegúrate de que este archivo existe en pages/
+import TopProducts from "./components/TopProducts"; // Cambia esto a la ruta correcta para el componente TopProducts
 
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
@@ -20,9 +23,12 @@ import ListUser from './components/ListUsers';
 import ListProducts from './components/ListProducts';
 import ProductCatalog from './components/ProductCatalog';
 import AddProductPage from './pages/admin/AddProductPage';
+import SalesDashboard from './components/SalesDashboard';
+import CreateSalePage from './pages/CreateSalePage';
+
 
 function App() {
-    const [cart, setCart] = useState([]); // Ahora useState está definido
+    const [cart, setCart] = useState([]);
 
     const handleAddToCart = (product) => {
         setCart([...cart, product]);
@@ -47,6 +53,9 @@ function App() {
                     <Route path='/productos/ver-catalogo' element={<ProductCatalog onAddToCart={handleAddToCart} />} />
                     <Route path='/productos/anadir-categoria' element={<AddProductPage />} />
                     <Route path='/inventario' element={<Inventary />} />
+                    <Route path='/ventas/ver' element={<SalesDashboard />} />
+                    <Route path='/ventas/top-productos' element={<TopProductsPage />} />
+                    <Route path='/ventas/crear' element={<CreateSalePage />} />
                 </Route>
 
                 <Route path="*" element={<Error404 />} />
